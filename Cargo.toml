@@ -1,0 +1,30 @@
+[package]
+name = "cachkeystorage"
+version = "0.1.0"
+edition = "2024"
+description = "In-process RAM key-value cache with HTTP and CKV1"
+readme = "README.md"
+default-run = "cachkeystorage"
+
+[[bin]]
+name = "cachkeystorage"
+path = "src/main.rs"
+
+[[bin]]
+name = "stress"
+path = "src/bin/stress.rs"
+
+[dependencies]
+ahash = "0.8.12"
+bytes = "1.12.1"
+hashbrown = { version = "0.15", features = ["raw-entry"] }
+http = "1.5.0"
+http-body-util = "0.1.5"
+hyper = { version = "1.12.0", features = ["http1", "server"] }
+hyper-util = { version = "0.1.21", features = ["tokio", "http1", "server"] }
+itoa = "1.0.18"
+mio = { version = "1.1", features = ["net", "os-poll"] }
+parking_lot = "0.12.5"
+tokio = { version = "1.53.2", features = ["macros", "rt-multi-thread", "net", "signal", "io-util", "time", "sync"] }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
